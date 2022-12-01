@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <!-- internal styles -->
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <style>
+        h2 {
+           /* color:red , */
+           /* color: rgb(255, 0, 0) */
+           /* color:#A52A2A */
+            /* color : hsl(hue, saturation, lightness) */
+
+        }
+        p {
+            color:blue;
+            font-family: "Impact", "Arial";
+            text-transform: uppercase;
+            text-decoration: line-through;
+            text-shadow: 0px 2px 2px red;
+            line-height: 50%;
+            letter-spacing: 5px;
+            word-spacing: 10px;
+            text-align: center;
+            text-indent: 2rem;
+        }
+
+        #bandung {
+            color: cadetblue;
+        }
+        .heading {
+            color: brown;
+        }        
+        #jogja {
+            color:chartreuse;
+        }
+
+        a[href] {
+            color:red
+        }
+
+        a{
+            color:blue
+        }
+
+
+        body {
+            /* background-color: green; */
+            /* background: linear-gradient(90deg,blue,yellow); */
+            /* background-image: url("img/lion.jpg"); */
+            /* background: url("./img/lion.jpg"); */
+            background-position: left top;
+            background-size: 1920px 1080px;
+            padding-left: 20px;
+
+        }
+
+        .konten {
+            background-color: pink;
+            width: 900px;
+            height: 100px;
+            /* text-align: center; */
+            text-indent: 50%;
+            
+            border: 5px 5px 5px black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- inline styles -->
+    <p style="color:green"> Hola</p>
+
+    <p> ini p</p>
+    <h2 class="heading"> ini h2</h2>
+    <h2 class="heading"> ini h2</h2>
+    <h2> ini h2</h2>
+
+    <p id="bandung"> halo bandung</p>
+    <p id="bandung"> halo bandung</p>
+    <p id="bandung"> halo bandung</p>
+
+    <p> <a href="#">Jaya Jaya Jaya</a> </p>
+    <a >Joyo Joyo Joyo</a>
+
+
+
+    <p class="heading" id="jogja"> halo jogja</p>
+
+
+
+
+    <div class="konten"> hello guys</div>
+</body>
+</html>

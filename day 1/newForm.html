@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" />
+        <input type="password" />
+        <input type="checkbox" />
+        <input type="radio" />
+        <input type="number" min="1" max="10" />
+        <input type="button" value="Button" />
+        <input type="submit" value="Submit" />
+
+        <textarea  cols="64" rows="3"></textarea>
+
+        <button type="button"> Ok</button>
+        <button type="reset"> reset</button>
+
+        <button type="button" onclick="doSomething();">Apply</button>
+
+
+        <p>Apa warna fav mu?</p>
+        <select name="" id="">
+            <option value="">Merah</option>
+            <option value="">Kuning</option>
+            <option value="">Hijau</option>
+
+        </select>
+        <p>Apa makanan fav mu?</p>
+        <select name="" id="">
+            <option value="1">Telur Gulung</option>
+            <option selected value="2">Cilok</option>
+            <option value="3">Bakso</option>
+        </select>
+
+        <p>
+            <label for="user">Username</label>
+            <input type="text" name="user" />
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" />
+        </p>
+
+    </form>
+
+    <fieldset>
+        <legend>Data Diri</legend>
+        <p>
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" />
+        </p>
+        <p>
+            <label for="usia">Usia</label>
+            <input type="number" name="usia" />
+        </p>
+    </fieldset>
+
+    <div>halo</div>
+    <div>halo 2</div>
+    <div>halo 3</div>
+
+    <p>halo</p>
+    <p>halo 2</p>
+    <p>halo 3</p>
+
+    
+
+
+
+    
+</body>
+</html>
+
+<script>
+
+function doSomething() {
+    //task or code block
+    alert("apply")
+}
+
+</script>
