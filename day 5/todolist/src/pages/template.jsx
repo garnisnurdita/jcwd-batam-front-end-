@@ -1,11 +1,9 @@
+import { InputTodo } from "../components/todo/todo"
 import "../css/template.css"
-import { InputTodo } from "./todo"
-
-export default function Template(){
+export default function PageTemplate(){
 
     return ( 
         <div className="template">
-
             <InputTodo/>
 
         </div>

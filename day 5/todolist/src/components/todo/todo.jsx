@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../css/todo.css"
+import "../../css/todo.css"
 
 export function InputTodo() {
   const [listData, setListData] = useState([])
@@ -14,7 +14,6 @@ export function InputTodo() {
 
   function inputHandler(event) {
     const { value, name } = event.target;
-
   //{date : "2022-12-09" , status : " " , 
   // desc : "makan ayam goreng" , todo : "makan ayam"}
 
@@ -25,7 +24,7 @@ export function InputTodo() {
   }
 
   function addTodoItem() {
-    if(!objData.todo || !objData.desc || !objData.date) return alert("please fill the textbox")
+    if(!objData.todo || !objData.desc || !objData.date) return alert("please fill the data")
     else if(listData[listData.length-1]?.todo === objData.todo) return alert("you already add this todo")
   
     //list data = [ {date : "2022-12-09" , status : " " , 
@@ -47,7 +46,7 @@ return (
   listData?.map((val,idx) => {
     return (
   <>
-  <TodoCard data={val}  /> 
+  <TodoCard data={val} idx={idx} /> 
      </>
     )
   })
@@ -74,7 +73,6 @@ export function TodoCard(props) {
 
   return ( 
     <> 
-
     {
       status ? 
       <div className="content-done" key={props.idx}>
@@ -83,7 +81,6 @@ export function TodoCard(props) {
       <div> Desc : {props.data.desc}</div>
       <div style={{ textAlign: "center", marginTop:"20px" }}> <button className="button-done" onClick={()=> setStatus(!status)}>Done</button>  </div>
      </div>
-
       :
       <div className="content" key={props.idx}>
       <div> Title : {props.data.todo} </div>

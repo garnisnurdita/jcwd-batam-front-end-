@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Template from './components/template';
+import PageTemplate from './pages/template';
+import { Routes, Route } from "react-router-dom"
+import PageTokoBuah from './pages/tokobuah';
 function App() {
   return (
-   <Template/>
+    <Routes>
+      <Route path="/" element={<PageTemplate/>}></Route>
+      <Route path="/tokobuah" element={<PageTokoBuah/>}></Route>
+    </Routes>
+
   );
 }
 
