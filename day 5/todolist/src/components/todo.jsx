@@ -81,7 +81,7 @@ export function TodoCard(props) {
       <div> Title : {props.data.todo} </div>
       <div> Date : {props.data.date}</div>
       <div> Desc : {props.data.desc}</div>
-      <div style={{ textAlign: "center" }}> <button className="button-done" onClick={()=> setStatus(!status)}>Done</button>  </div>
+      <div style={{ textAlign: "center", marginTop:"20px" }}> <button className="button-done" onClick={()=> setStatus(!status)}>Done</button>  </div>
      </div>
 
       :
@@ -89,7 +89,7 @@ export function TodoCard(props) {
       <div> Title : {props.data.todo} </div>
       <div> Date : {props.data.date}</div>
       <div> Desc : {props.data.desc}</div>
-      <div style={{ textAlign: "center" }}> <button className="button-ongoing" onClick={()=> setStatus(!status)}>On Going</button>  </div>
+      <div style={{ textAlign: "center", marginTop:"20px" }}> <button className="button-ongoing" onClick={()=> setStatus(!status)}>On Going</button>  </div>
      </div>
 
     }
