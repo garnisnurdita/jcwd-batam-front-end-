@@ -28,7 +28,9 @@ export function InputTodo() {
     // if(!objData.todo || !objData.desc || !objData.date) return alert("please fill the textbox")
     // else if(listData[listData.length-1]?.todo === objData.todo) return alert("you already add this todo")
   
-    
+    //list data = [ {date : "2022-12-09" , status : " " , 
+  // desc : "makan ayam goreng" , todo : "makan ayam"} ] 
+
     setListData([...listData,objData])
   }
 
@@ -87,7 +89,7 @@ export function TodoCard(props) {
       <div> Title : {props.data.todo} </div>
       <div> Date : {props.data.date}</div>
       <div> Desc : {props.data.desc}</div>
-      <div style={{ textAlign: "center" }}> <button className="button-ongoing" onClick={()=> setStatus(!status)}>Done</button>  </div>
+      <div style={{ textAlign: "center" }}> <button className="button-ongoing" onClick={()=> setStatus(!status)}>On Going</button>  </div>
      </div>
 
     }
