@@ -1,0 +1,13 @@
+.template {
+    display :grid;
+    /* border: 2px solid grey; */
+    max-width: 1000px;
+    grid-gap: 2em;
+
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    padding-top:2rem;
+    /* margin-top: 10%; */
+
+    
+}
