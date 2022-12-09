@@ -25,8 +25,8 @@ export function InputTodo() {
   }
 
   function addTodoItem() {
-    // if(!objData.todo || !objData.desc || !objData.date) return alert("please fill the textbox")
-    // else if(listData[listData.length-1]?.todo === objData.todo) return alert("you already add this todo")
+    if(!objData.todo || !objData.desc || !objData.date) return alert("please fill the textbox")
+    else if(listData[listData.length-1]?.todo === objData.todo) return alert("you already add this todo")
   
     //list data = [ {date : "2022-12-09" , status : " " , 
   // desc : "makan ayam goreng" , todo : "makan ayam"} ] 
