@@ -63,7 +63,7 @@
     background-color:#FAFAFA;
     /* border: 2px solid grey; */
     margin: 10px;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
     color: black;
     font-weight: bold;
@@ -71,11 +71,36 @@
     padding: 30px;
     text-align: left;
     display: grid;
-    grid-template-rows:3fr 1fr 1fr;
+    grid-template-rows:3fr 1fr 1fr 1fr;
     grid-gap: 5px;
     /* border: 2px solid lightgrey; */
 
 }
+
+.product-edit-delete {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 10px;
+    
+}
+
+.product-edit-delete button {
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    font-weight: 700;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.product-edit-delete button:hover {
+    
+    background-color: grey;
+}
+
+
 
 .product-img {
     height: 150px;
