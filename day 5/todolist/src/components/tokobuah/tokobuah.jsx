@@ -65,13 +65,13 @@ export function TokoBuahList() {
 
   function editProduct(data){
     setProduct({...data})
-    // document.getElementsByName()
     console.log(data);
 
   }
 
   function deleteProduct(id) {
    let answer =  window.confirm("are you sure you want to delete this product?")
+   alert(answer)
   if(answer) {
     axios.delete("http://localhost:2000/products/"+id ).then(() => {
       fetchProducts();
@@ -79,9 +79,6 @@ export function TokoBuahList() {
 
     })
   } 
-  else {
-
-  }
   }
 
   //componentDidUpdate
@@ -97,13 +94,13 @@ export function TokoBuahList() {
   function addproductItem() {
     if(!product.product || !product.img_url || !product.price) return alert("please fill the data")
     else if(products.find((val)=> val.id === product.id)) {
-      axios.patch("http://localhost:2000/products/" + product.id, product ).then(() => {
+    return  axios.patch("http://localhost:2000/products/" + product.id, product ).then(() => {
         fetchProducts();
         alert("product updated")
     })
     }
     
-    axios.post("http://localhost:2000/products", product ).then(() => {
+  return  axios.post("http://localhost:2000/products", product ).then(() => {
       fetchProducts();
       alert("new product added")
 
@@ -126,7 +123,9 @@ products?.map((val,idx) => {
     return (
       <div className="product" key={idx}>
     <BuahCard data={val} idx={idx} />
-    <div className="product-edit-delete" > <button onClick={() => editProduct(val)}> edit </button> <button onClick={()=> deleteProduct(val.id)}> delete </button> </div>
+    <div className="product-edit-delete" >
+    <button onClick={() => editProduct(val)}> edit </button> 
+    <button onClick={()=> deleteProduct(val.id)}> delete </button> </div>
 
     </div>
  

@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "product": "Apel",
-      "img_url": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1630331723/attached_image/jarang-bertemu-dokter-berkat-manfaat-apel.jpg",
-      "price": 2000
-    },
-    {
       "id": 2,
       "product": "Jeruk peras2",
       "img_url": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1630331723/attached_image/jarang-bertemu-dokter-berkat-manfaat-apel.jpg",
@@ -14,9 +8,9 @@
     },
     {
       "id": 3,
-      "product": "pear",
+      "product": "buah pear 2",
       "img_url": "https://cdn0-production-images-kly.akamaized.net/2G_AVsCgQA4pWcb3lvrDjme0oOY=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3177457/original/033868200_1594570883-ilustrasimangga.jpg",
-      "price": "500000"
+      "price": "10000"
     },
     {
       "id": 4,
@@ -26,14 +20,8 @@
     },
     {
       "id": 5,
-      "product": "Pisang",
-      "img_url": "https://cdn1-production-images-kly.akamaized.net/C18QmJ_eTDQ2fMzB1t8mEi9UPzk=/640x853/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3159189/original/071968400_1592812996-yellow-banana-peels-on-white-surface-1974514.jpg",
-      "price": 2000
-    },
-    {
-      "id": 8,
-      "product": "Apel 8",
-      "img_url": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1630331723/attached_image/jarang-bertemu-dokter-berkat-manfaat-apel.jpg",
+      "product": "pepaya 2",
+      "img_url": "https://cdn1-production-images-kly.akamaized.net/kLuwLh7KcFDpSr6aMBSwpmPp9dk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3158648/original/070019300_1592734103-photo-of-papaya-beside-sliced-lime-4113802.jpg",
       "price": "30000"
     }
   ]
