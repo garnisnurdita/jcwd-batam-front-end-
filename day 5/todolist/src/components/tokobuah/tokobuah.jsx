@@ -104,10 +104,7 @@ export function TokoBuahList() {
       fetchProducts();
       alert("new product added")
 
-  })
-    
-    // setProducts([...products,product])
-  }
+  })  }
 
 
 return (

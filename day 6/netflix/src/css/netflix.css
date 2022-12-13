@@ -25,9 +25,10 @@ color: #E10712;
 padding-left: 3rem;
 display: flex;
 justify-content: space-between;
-position:sticky;
+position:fixed;
+width: 100%;
 top: 0;
-z-index: 1;
+z-index: 4;
 }
 
 .navbar-logo {
@@ -42,7 +43,7 @@ z-index: 1;
     color: white;
     font-size: small;
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     max-width: 500px;
     grid-gap: 10px;
     
@@ -83,16 +84,11 @@ z-index: 1;
     /* max-height: 1.2rem; */
 }
 
-@media screen and (max-height: 900px){
+
+@media screen and ( (max-width: 1250px) or (max-height: 700px)) {
     .netflix-template {
         height: auto;
-
-    }
-    .movie-template{
-        padding: 0;
-        -webkit-mask-image:none;
-    }
-    
+    } 
     
 }
 
@@ -237,13 +233,13 @@ z-index: 1;
     display: none;
     /* text-align: center; */
     /* flex-wrap: wrap; */
-    height: 100vh;
+    height: 100%;
     flex-direction: row;
     position: fixed !important;
     z-index: 2;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size:cover;
     overflow-y: auto;
     white-space: nowrap;
     
@@ -282,6 +278,7 @@ z-index: 1;
     padding: 15px 40px;
     font-weight: 600;
     z-index: 1;
+    width: 100%;
     
 }
 
