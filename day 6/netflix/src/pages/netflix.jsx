@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import Movie from "../components/movie"
 import MovieDetail from "../components/movieDetail"
 import "../css/netflix.css"
 import axios from "axios"
