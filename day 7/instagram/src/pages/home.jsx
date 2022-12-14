@@ -7,7 +7,7 @@ return (
     <>
     <Box bgColor={"#FAFAFA"}  minW={821}>
     <Navbar/>
-    <Center paddingY={"7"} >
+    <Center paddingY={"20"} >
         <Flex display="inline-flex" flexDir={"column"}>
         <ContentCard  />
         <ContentCard/>
