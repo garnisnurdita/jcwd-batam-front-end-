@@ -2,12 +2,12 @@
   "posts": [
     {
       "id": 1,
-      "username": "jordan.ongg",
+      "username": "jordan",
       "avatar_url": "https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg",
       "image_url": "https://i.pinimg.com/736x/67/d4/ed/67d4ed03bc00b6a159b456484b54b42f.jpg",
-      "number_of_likes": 198,
-      "liked": true,
-      "bookmarked": true,
+      "number_of_likes": 196,
+      "liked": false,
+      "bookmarked": false,
       "caption": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolore enim praesentium inventore asperiores sunt corporis unde dicta ipsa dolorum voluptatibus dolor, odio nobis est consequuntur labore!",
       "comments": [
         {
@@ -24,6 +24,16 @@
           "username": "test",
           "avatar_url": "",
           "comment": "hello boys"
+        },
+        {
+          "username": "test",
+          "avatar_url": "",
+          "comment": "hihhii"
+        },
+        {
+          "username": "test",
+          "avatar_url": "",
+          "comment": "hehehe"
         }
       ]
     },
@@ -41,6 +51,11 @@
           "username": "test",
           "avatar_url": "",
           "comment": "hello boys"
+        },
+        {
+          "username": "test",
+          "avatar_url": "",
+          "comment": "nice try"
         }
       ]
     },

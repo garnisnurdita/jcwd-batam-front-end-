@@ -1,8 +1,75 @@
-import { Avatar, Box,Text, Image, AspectRatio, Icon,Input,Button, Divider } from "@chakra-ui/react";
-import { FaRegHeart, FaRegComment } from "react-icons/fa";
-import { IoPaperPlaneOutline } from "react-icons/io5";
+import { Avatar, Box,Text, Image, AspectRatio, Icon,Input,Button, Divider, Flex } from "@chakra-ui/react";
+import { FaRegHeart, FaRegComment, FaRegPaperPlane,FaHeart } from "react-icons/fa";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 
-export default function ContentCard() {
+import { useState } from "react";
+import { axiosInstance } from "../config/config";
+import Comments from "./comments";
+
+export default function ContentCard(props) {
+    const [comment, setComment] = useState("")
+    const [liked, setLiked] = useState(props.data.liked)
+    const [totalLikes, setTotalLikes] = useState(props.data.number_of_likes)
+    const [showComments, setShowComments] = useState(false)
+    const [allComments, setAllComments] = useState([...props.data.comments])
+
+
+    const [bookmarked, setBookmarked] = useState(props.data.bookmarked)
+
+   async function likePost() {
+    let tempData = {number_of_likes : totalLikes ,
+    liked : liked}
+    !liked? tempData.number_of_likes++ : tempData.number_of_likes--;
+    tempData.liked = !liked;
+    await axiosInstance.patch(`posts/${props.data.id}`, tempData)
+    setTotalLikes(tempData.number_of_likes) 
+    setLiked(!liked)
+
+    }
+
+   async function bookmarkPost() {
+    let tempData = {
+        bookmarked: !bookmarked
+    }
+    await axiosInstance.patch(`posts/${props.data.id}`, tempData)
+    setBookmarked(!bookmarked)
+    }
+
+    async function addComment() {
+    let tempData = {
+        comments : allComments
+    }
+
+    let dataComment = {
+        username : "test",
+        avatar_url : "",
+        comment
+    }
+    tempData.comments.push(dataComment)
+    setAllComments(tempData.comments)
+    
+    setComment("")
+    return await axiosInstance.patch("/posts/" + props.data.id, tempData)
+    }
+
+    function renderComments() {
+        return (<>
+        {
+        allComments?.map((val,idx) => {
+        return <Comments data={val} key={idx} />})
+        }
+        <Text fontSize={"sm"} color={"#8E8E8E"} paddingX="2" 
+      onClick={()=> setShowComments(!showComments)}
+      sx={{
+        _hover: {
+          cursor: "pointer",
+        },
+      }}
+      >Hide All Comments</Text>
+        </> 
+        )
+    }
 
     return ( <>
     <Box  borderWidth={"1px"}
@@ -11,47 +78,118 @@ export default function ContentCard() {
     minW={470}
     borderRadius={10}
     >
-        <Box paddingX={3} paddingBottom={2} display={"flex"} alignItems={"center"}
-        
+        <Flex paddingX={2} paddingBottom={2} display={"flex"} alignItems={"center"}
+        justifyContent="space-between"
         >
-        <Avatar size={"md"}></Avatar>
-        <Box marginLeft={2}>
-            <Text fontSize={"md"} fontWeight={"bold"}>jordan.ongg</Text>
-            <Text fontSize={"sm"} color={"GrayText"}>Batam</Text>
-        </Box>
-        </Box>
-       <AspectRatio ratio={1} >
-       <Image src="https://imageio.forbes.com/specials-images/imageserve/62278bc6897b081d1eef49ea/2022-BMW-i4-coup--electric-car/960x0.jpg?format=jpg&width=960" />
+        <Flex gap={2} alignItems={"center"}>
+        <Avatar size={"sm"} src={props.data.avatar_url}  
+        sx={{
+            _hover: {
+              cursor: "pointer",
+            },
+          }} ></Avatar>
+            <Text fontSize={"sm"} fontWeight={"bold"} 
+             sx={{
+                _hover: {
+                  cursor: "pointer",
+                },
+              }}
+            > {props.data.username} </Text>
+        </Flex>
+       
+
+        <Icon as={BiDotsHorizontalRounded}  sx={{
+            _hover: {
+              cursor: "pointer",
+            },
+          }} boxSize={5} />
+        </Flex>
+       <AspectRatio ratio={4/5} maxH={585} >
+       <Image src={props.data.image_url} />
        </AspectRatio>
 
-       <Box paddingX="3" paddingY="2" display="flex" alignItems="center">
-        <Icon boxSize={6} as={FaRegHeart} />
+       <Box paddingX="2" paddingTop="2" paddingBottom={"1"} 
+       display="flex" alignItems="center" justifyContent={"space-between"}
+       zIndex={"1"}
+       >
+        <Flex gap={3} >
+
+
+        <Icon boxSize={5} as={liked? FaHeart :FaRegHeart}
+        color={liked? "#ED4956" : null}
+        sx={{
+            _hover: {
+              cursor: "pointer",
+            },
+          }}
+        onClick={likePost}
+        />
+
+
         <Icon
-          marginLeft="4"
-          boxSize={6}
+          boxSize={5}
           as={FaRegComment}
           sx={{
             _hover: {
               cursor: "pointer",
             },
           }}
+          onClick={()=> setShowComments(!showComments)}
         />
-        <Icon>
-            as={IoPaperPlaneOutline}
-        </Icon>
+        <Icon 
+        as={FaRegPaperPlane}  
+        boxSize={5}
+        sx={{
+            _hover: {
+              cursor: "pointer",
+            },
+          }}
+        />
+        </Flex>
+       
+
+        <Icon 
+        boxSize={5}
+        sx={{
+            _hover: {
+              cursor: "pointer",
+            },
+          }}
+        onClick={bookmarkPost}
+        as={bookmarked? BsFillBookmarkFill : BsBookmark}  
+        />
       </Box>
 
-      <Box paddingX="3">
-        <Text fontWeight="bold">100 likes</Text>
+      <Box paddingX="2">
+        <Text fontWeight="bold" fontSize={"sm"}>{totalLikes} likes</Text>
       </Box>
 
-      {/* Caption */}
-      <Box paddingX="3" pb={1} >
-        <Text display="inline" fontWeight="bold" marginRight="1">
-          jordan
+      <Box paddingX="2" pb={1} >
+        <Text display="inline" fontSize={"sm"} fontWeight="bold" >
+          {props.data.username}
         </Text>
-        <Text display="inline"> nice car with a view </Text>
+        <Text display="inline" fontSize={"sm"}> {props.data.caption} </Text>
       </Box>
+
+      { allComments.length && !showComments ? 
+      <Text fontSize={"sm"} color={"#8E8E8E"} paddingX="2" 
+      onClick={()=> setShowComments(!showComments)}
+      sx={{
+        _hover: {
+          cursor: "pointer",
+        },
+      }}
+      >View all {allComments.length} Comments</Text> :
+      (
+        showComments? (
+        renderComments()
+         ) : null
+      )
+      }
+
+     
+    
+
       <Divider orientation='horizontal' />
             <Box display="flex">
             <Input
@@ -62,10 +200,14 @@ export default function ContentCard() {
               placeholder="Add a Comment"
               marginRight="4"
               variant='unstyled'
+              fontSize={"sm"}
+              onChange={(e)=> { setComment(e.target.value) }}
+              value={comment}
             />
-            <Button colorScheme={"white"} color={"#0095f6"}>
-              Post
-            </Button>
+                <Button colorScheme={"white"} color={"#0095f6"} disabled={comment? 
+                null : "disabled"} onClick={addComment}>
+                Post
+              </Button>
           </Box>
 
        
