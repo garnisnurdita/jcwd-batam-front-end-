@@ -8,20 +8,22 @@ import { axiosInstance } from "../config/config";
 import Comments from "./comments";
 
 export default function ContentCard(props) {
-    const [comment, setComment] = useState("")
     const [liked, setLiked] = useState(props.data.liked)
     const [totalLikes, setTotalLikes] = useState(props.data.number_of_likes)
+    
     const [showComments, setShowComments] = useState(false)
     const [allComments, setAllComments] = useState([...props.data.comments])
+    const [comment, setComment] = useState("")
+
 
 
     const [bookmarked, setBookmarked] = useState(props.data.bookmarked)
 
    async function likePost() {
     let tempData = {number_of_likes : totalLikes ,
-    liked : liked}
+    liked : !liked}
+    // tempData.liked = !liked;
     !liked? tempData.number_of_likes++ : tempData.number_of_likes--;
-    tempData.liked = !liked;
     await axiosInstance.patch(`posts/${props.data.id}`, tempData)
     setTotalLikes(tempData.number_of_likes) 
     setLiked(!liked)
@@ -42,10 +44,11 @@ export default function ContentCard(props) {
     }
 
     let dataComment = {
-        username : "test",
-        avatar_url : "",
+        username : props?.user?.username ,
+        avatar_url : props?.user?.avatar_url,
         comment
     }
+
     tempData.comments.push(dataComment)
     setAllComments(tempData.comments)
     
@@ -65,8 +68,7 @@ export default function ContentCard(props) {
         _hover: {
           cursor: "pointer",
         },
-      }}
-      >Hide All Comments</Text>
+      }}>Hide All Comments</Text>
         </> 
         )
     }
@@ -114,8 +116,8 @@ export default function ContentCard(props) {
        >
         <Flex gap={3} >
 
-
-        <Icon boxSize={5} as={liked? FaHeart :FaRegHeart}
+        <Icon boxSize={5}
+         as={liked? FaHeart :FaRegHeart}
         color={liked? "#ED4956" : null}
         sx={{
             _hover: {

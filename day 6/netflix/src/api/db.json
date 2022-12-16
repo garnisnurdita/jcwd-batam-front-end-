@@ -63,5 +63,43 @@
       "category": "Action, Adventure",
       "img_url": "https://occ-0-6708-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABbPXSGkNDo3cQ2rBKviUt71o_aPhcLPIcfsm8c8d2E2xEiu8qcLlAkPdMGyf6qqVK7kunauLQe9n1saLPSD6fjq-YYtIuKNcMbtO.jpg?r=d7f"
     }
+  ],
+  "products": [
+    {
+      "id": 2,
+      "product": "Jeruk peras2",
+      "img_url": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1630331723/attached_image/jarang-bertemu-dokter-berkat-manfaat-apel.jpg",
+      "price": 3000
+    },
+    {
+      "id": 3,
+      "product": "buah pear 2",
+      "img_url": "https://cdn0-production-images-kly.akamaized.net/2G_AVsCgQA4pWcb3lvrDjme0oOY=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3177457/original/033868200_1594570883-ilustrasimangga.jpg",
+      "price": "10000"
+    },
+    {
+      "id": 4,
+      "product": "Pepayu2",
+      "img_url": "https://cdn1-production-images-kly.akamaized.net/kLuwLh7KcFDpSr6aMBSwpmPp9dk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3158648/original/070019300_1592734103-photo-of-papaya-beside-sliced-lime-4113802.jpg",
+      "price": 2000
+    },
+    {
+      "id": 5,
+      "product": "pepaya 2",
+      "img_url": "https://cdn1-production-images-kly.akamaized.net/kLuwLh7KcFDpSr6aMBSwpmPp9dk=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3158648/original/070019300_1592734103-photo-of-papaya-beside-sliced-lime-4113802.jpg",
+      "price": "30000"
+    },
+    {
+      "id": 7,
+      "product": "Apel",
+      "img_url": "https://cdn-brilio-net.akamaized.net/community/2018/09/12/13793/ayo-nikmati-apel-rebus-yang-ternyata-sangat-baik-untuk-kesehatan.jpg",
+      "price": 2000
+    },
+    {
+      "id": 8,
+      "product": "Apel",
+      "img_url": "https://cdn-brilio-net.akamaized.net/community/2018/09/12/13793/ayo-nikmati-apel-rebus-yang-ternyata-sangat-baik-untuk-kesehatan.jpg",
+      "price": 2000
+    }
   ]
 }

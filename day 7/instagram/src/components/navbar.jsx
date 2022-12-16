@@ -4,12 +4,23 @@ import InstagramLogo from "../assets/Instagram_logo.svg.png"
 import { AiOutlineHeart,AiOutlineCompass,AiFillHome } from "react-icons/ai";
 import { FiPlusSquare} from "react-icons/fi";
 import { RiMessengerLine } from "react-icons/ri";
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import user_types from "../redux/auth/types";
 
 
-
-export default function Navbar() {
+export default function Navbar(props) {
     let navigate = useNavigate();
+    let dispatch = useDispatch()
+
+    function logOut() {
+      dispatch({
+        type: user_types.USER_LOGOUT
+      })
+
+    }
+
+
     return (
         <> 
          <Flex height={"60px"} 
@@ -25,7 +36,7 @@ export default function Navbar() {
                   }}
                   onClick={
                     () => {
-                        navigate("/")
+                        navigate("/", { replace : true})
                         window.location.reload(true);
                     }
                   }></Image>
@@ -67,7 +78,9 @@ export default function Navbar() {
 
             <Menu position="fixed" zIndex="3" isLazy>
             <MenuButton>
-            <Avatar boxSize={"7"}   sx={{
+            <Avatar boxSize={"7"}  
+            src={props?.user?.avatar_url}
+            sx={{
             _hover: {
               cursor: "pointer",
             },
@@ -79,9 +92,12 @@ export default function Navbar() {
                      window.location.reload(true);}}>Profile</MenuItem>
                     <MenuItem>Saved</MenuItem>
                     <MenuItem>Settings</MenuItem>
-                    <MenuItem borderTop={"1px solid #E2E8F0"} >
+                    {/* <Link to={"/login"}>    */}
+                    <MenuItem borderTop={"1px solid #E2E8F0"}
+                    onClick={logOut} >
                     Log Out
                     </MenuItem>
+                    {/* </Link> */}
                     </MenuList>
             </Menu>
             </Flex>
