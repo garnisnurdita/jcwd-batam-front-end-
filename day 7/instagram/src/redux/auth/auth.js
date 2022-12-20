@@ -5,6 +5,7 @@ const init_state = {
   password: "",
   avatar_url: "",
   name: "",
+  desc: "",
 };
 
 function userReducer(state = init_state, action) {
@@ -21,6 +22,7 @@ function userReducer(state = init_state, action) {
       password: action.payload.password,
       avatar_url: action.payload.avatar_url,
       name: action.payload.name,
+      desc: action.payload.desc,
     };
   } else if (action.type === user_types.USER_LOGOUT) {
     return init_state;

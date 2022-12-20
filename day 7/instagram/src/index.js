@@ -8,17 +8,21 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./redux/store";
 import { Provider } from "react-redux";
+import AuthProvider from "./hoc/authProvider";
+const auth = React.lazy(() => import("./hoc/authProvider"));
 
 const store = configureStore({ reducer: rootReducer });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ChakraProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ChakraProvider>
+      <AuthProvider>
+        <ChakraProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ChakraProvider>
+      </AuthProvider>
     </Provider>
   </React.StrictMode>
 );

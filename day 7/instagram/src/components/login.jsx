@@ -1,11 +1,11 @@
 import { Input,Box,Button,Flex,Image, Divider,Text,Icon, Alert,AlertIcon } from "@chakra-ui/react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InstagramLogo from "../assets/Instagram_logo.svg.png"
 import { AiFillFacebook } from "react-icons/ai"
 import { axiosInstance } from "../config/config";
 import { useState } from "react";
 import user_types from "../redux/auth/types";
-import { useSelector , useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
     const dispatch = useDispatch();
@@ -28,15 +28,18 @@ export default function Login() {
         const res =  await axiosInstance.get("/users/", {params : user})
         const userData = res.data[0]
 
-        dispatch({
+        if(userData) 
+       { dispatch({
             type: user_types.USER_LOGIN,
             payload: userData
         })
         
         localStorage.setItem("user_data", JSON.stringify(userData))
-
-        userData ? navigate("/",{ state : { user :res.data[0] }, replace: true }) : setStatus(true)
-
+       return navigate("/",{ state : { user :res.data[0] }, replace: true }) 
+        
+        }
+      return  setStatus(true)
+        
 
     }
 
@@ -96,7 +99,7 @@ export default function Login() {
         borderWidth="2px" fontSize={"sm"}  
         cursor={"default"}
         fontWeight="light"
-        w={"100%"}>Don't have an account? <Link to={"/signup"} > <Text display={"inline"} fontWeight="bold" color="#0095F6">Sign up</Text></Link></Button>
+        w={"100%"}>Don't have an account? <Link to={"/register"} > <Text display={"inline"} fontWeight="bold" color="#0095F6">Sign up</Text></Link></Button>
         </Flex>
      
          

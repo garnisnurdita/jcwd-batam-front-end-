@@ -1,4 +1,5 @@
 import { Avatar, Box, Flex,Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function SideBar(props) {
 return (<>
@@ -15,10 +16,16 @@ return (<>
     justifyContent="space-between"
     >
         <Flex gap={5}>
+        <Link to={`/${props.user?.username}`}>
         <Avatar size={"md"} src={props?.user?.avatar_url}></Avatar>
+        </Link>
         <Flex flexDir={"column"}>
+        <Link to={`/${props.user?.username}`}>
         <Text fontWeight={"bold"} fontSize="sm"> {props?.user?.username} </Text>
+        </Link>
+        <Link to={`/${props.user?.username}`}>
         <Text fontSize="sm"  color={"#8E8E8E"}> {props?.user?.name} </Text>
+        </Link>
 
         </Flex> 
         </Flex>

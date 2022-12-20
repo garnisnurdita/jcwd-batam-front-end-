@@ -6,12 +6,10 @@ function ProtectedPage({
   children,
   needLogin = false,
   guestOnly = false,
-  authRoles = [],
+  authRoles = ["User", "Admin"],
 }) {
   let navigate = useNavigate();
   const userSelector = useSelector((state) => state.auth);
-  //   alert(needLogin);
-  //   alert(userSelector?.id);
 
   useEffect(() => {
     //wajib login
@@ -21,15 +19,21 @@ function ProtectedPage({
 
     //guest only, ga boleh login
     if (guestOnly && userSelector.id) {
-      return navigate("/login", { replace: true });
+      return navigate("/", { replace: true });
     }
 
     //hanya yang punya role ini
-    if (authRoles.length && !authRoles.includes(userSelector.role)) {
-      return navigate("/login", { replace: true });
-    }
+    // if (authRoles.length && !authRoles.includes(userSelector.role)) {
+    //   return navigate("/login", { replace: true });
+    // }
   }, []);
   return children;
 }
 
 export default ProtectedPage;
+
+// <> parent
+// //children
+// <navbar></navbar> //children
+// </>
+// component frontend /ui return sebuah tampilan

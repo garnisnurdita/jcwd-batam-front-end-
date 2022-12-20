@@ -1,10 +1,10 @@
-import { Flex,Image, Input,Icon, Avatar, Center, Menu, MenuList,MenuItem, MenuButton, Divider, Text } from "@chakra-ui/react"
+import { Flex,Image, Input,Icon, Avatar, Center, Menu, MenuList,MenuItem, MenuButton} from "@chakra-ui/react"
 import InstagramLogo from "../assets/Instagram_logo.svg.png"
 
 import { AiOutlineHeart,AiOutlineCompass,AiFillHome } from "react-icons/ai";
 import { FiPlusSquare} from "react-icons/fi";
 import { RiMessengerLine } from "react-icons/ri";
-import {  Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import user_types from "../redux/auth/types";
 
@@ -17,7 +17,8 @@ export default function Navbar(props) {
       dispatch({
         type: user_types.USER_LOGOUT
       })
-
+      localStorage.clear();
+      window.location.reload(true)
     }
 
 
@@ -36,9 +37,7 @@ export default function Navbar(props) {
                   }}
                   onClick={
                     () => {
-                        navigate("/", { replace : true})
-                        window.location.reload(true);
-                    }
+                        navigate("/", { replace : true})}
                   }></Image>
        
         <Flex gap={3}  maxH={"40px"}  flexDir="row" wrap={"wrap"} alignContent="center">
@@ -50,8 +49,7 @@ export default function Navbar(props) {
           onClick={
             () => {
                 navigate("/")
-                window.location.reload(true);
-            }
+                            }
           }
           ></Icon>
             <Icon boxSize={"7"} as={RiMessengerLine}  sx={{
@@ -88,14 +86,15 @@ export default function Navbar(props) {
             </MenuButton>
                     <MenuList fontSize={"xs"}>
                     <MenuItem  onClick={() => {
-                        navigate("/profile")
-                     window.location.reload(true);}}>Profile</MenuItem>
+                        navigate(`/${props.user?.username}`)
+                    }}>Profile</MenuItem>
                     <MenuItem>Saved</MenuItem>
                     <MenuItem>Settings</MenuItem>
                     {/* <Link to={"/login"}>    */}
                     <MenuItem borderTop={"1px solid #E2E8F0"}
                     onClick={logOut} >
                     Log Out
+                    
                     </MenuItem>
                     {/* </Link> */}
                     </MenuList>
@@ -106,7 +105,15 @@ export default function Navbar(props) {
             <Center>
             <Input px={4} type="search" zIndex="3" color="grey" placeholder="Search" borderRadius={"md"} 
             bgColor={"#EFEFEF"} variant="unstyled" maxW={"268px"} position="fixed" mt={14}
-            minH="36px"  maxHeight="20px"/>
+            minH="36px"  maxHeight="20px"  
+      onKeyUp={(e)=> 
+        {
+         if( e.key === "Enter") {
+        
+          navigate("/" + e.target.value , { replace : true})  
+          window.location.reload(true)
+         } 
+        } }/>
 
             </Center>
           

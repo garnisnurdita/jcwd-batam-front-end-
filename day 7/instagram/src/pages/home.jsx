@@ -2,41 +2,42 @@ import  { Center,Flex,Box } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
 import ContentCard from "../components/contentCard";
+import Loading from "../components/loading";
 import Navbar from "../components/navbar";
 import SideBar from "../components/sidebar";
 import {axiosInstance} from "../config/config.js"
 export default function HomePage(props) {
-    let navigate = useNavigate();
-    const userSelector = useSelector((state) => state.auth)
+const userSelector = useSelector((state) => state.auth)
+const [isLoading,setIsLoading] = useState(true)
 
 const [posts,setPosts] = useState([])
-const { state } = useLocation();
 
 const fetchPosts = async ()=> {
     await axiosInstance.get("posts").then((res)=> {
         setPosts(res.data)
+      setTimeout(() => {
+        setIsLoading(!isLoading)
+      }, 500);  
     })
-    
 }
 
 useEffect(()=> {
-    fetchPosts();
-    console.log(state);
-    setTimeout(() => {
-        // if(!(state) ) 
-        // navigate("/login") 
-    }, 10);
-   
+    fetchPosts();   
 },[])
 
 
 
 return ( 
     <>
-    <Box bgColor={"#FAFAFA"}  minW={821} minH={"100vh"}>
+    {
+        isLoading? 
+        <Loading/>
+        :
+        (
+            <>
     <Navbar user={userSelector} />
+    <Box bgColor={"#FAFAFA"}  minW={821} minH={"100vh"}>
     <Center gap={10} paddingY={"14"} >
         <Flex display="inline-flex" flexDir={"column"}>
             {
@@ -52,6 +53,10 @@ return (
         </Flex>
     </Center>
     </Box>
+            </>
+        )
+    }
+   
     </>
 )
 }

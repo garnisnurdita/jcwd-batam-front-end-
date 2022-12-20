@@ -6,6 +6,7 @@ import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import { useState } from "react";
 import { axiosInstance } from "../config/config";
 import Comments from "./comments";
+import { Link } from "react-router-dom";
 
 export default function ContentCard(props) {
     const [liked, setLiked] = useState(props.data.liked)
@@ -22,7 +23,6 @@ export default function ContentCard(props) {
    async function likePost() {
     let tempData = {number_of_likes : totalLikes ,
     liked : !liked}
-    // tempData.liked = !liked;
     !liked? tempData.number_of_likes++ : tempData.number_of_likes--;
     await axiosInstance.patch(`posts/${props.data.id}`, tempData)
     setTotalLikes(tempData.number_of_likes) 
@@ -84,12 +84,15 @@ export default function ContentCard(props) {
         justifyContent="space-between"
         >
         <Flex gap={2} alignItems={"center"}>
+       <Link to={"/" + props.data.username}>
         <Avatar size={"sm"} src={props.data.avatar_url}  
         sx={{
             _hover: {
               cursor: "pointer",
             },
           }} ></Avatar>
+          </Link>
+          <Link to={"/" + props.data.username}>
             <Text fontSize={"sm"} fontWeight={"bold"} 
              sx={{
                 _hover: {
@@ -97,8 +100,9 @@ export default function ContentCard(props) {
                 },
               }}
             > {props.data.username} </Text>
+        </Link>
         </Flex>
-       
+
 
         <Icon as={BiDotsHorizontalRounded}  sx={{
             _hover: {

@@ -2,11 +2,11 @@
   "posts": [
     {
       "id": 1,
-      "username": "jordan",
-      "avatar_url": "https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg",
+      "username": "jordan.ongg",
+      "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg",
       "image_url": "https://i.pinimg.com/736x/67/d4/ed/67d4ed03bc00b6a159b456484b54b42f.jpg",
-      "number_of_likes": 196,
-      "liked": false,
+      "number_of_likes": 197,
+      "liked": true,
       "bookmarked": false,
       "caption": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolore enim praesentium inventore asperiores sunt corporis unde dicta ipsa dolorum voluptatibus dolor, odio nobis est consequuntur labore!",
       "comments": [
@@ -44,13 +44,23 @@
           "username": "heri",
           "avatar_url": "https://parade.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgwOTIyMDYxMTcwNTU2/john-cena-net-worth.jpg",
           "comment": "helooo"
+        },
+        {
+          "username": "jordan.ongg",
+          "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg",
+          "comment": "lol"
+        },
+        {
+          "username": "jordan.ongg",
+          "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg",
+          "comment": "yg bnr bro?"
         }
       ]
     },
     {
       "id": 2,
-      "username": "kenny.s",
-      "avatar_url": "https://liveboldandbloom.com/wp-content/uploads/2021/09/Untitled_design_3_1.png",
+      "username": "jordan.ongg",
+      "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg",
       "image_url": "https://preview.redd.it/aipg2jghyzp81.jpg?auto=webp&s=ec773acc4490220da7205a968b2f387942e0c828",
       "number_of_likes": 54,
       "bookmarked": false,
@@ -105,24 +115,79 @@
   "users": [
     {
       "id": 1,
-      "username": "jordan",
+      "username": "jordan.ongg",
       "password": "password",
       "name": "Jordan",
-      "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg"
+      "avatar_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg",
+      "desc": "Laundry Shoe & Bag ll Unyellowing ll Repair ll Repaint ll Sole Protect"
     },
     {
       "id": 2,
       "username": "heri",
       "password": "password",
       "name": "Heriyanto",
-      "avatar_url": "https://parade.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgwOTIyMDYxMTcwNTU2/john-cena-net-worth.jpg"
+      "avatar_url": "https://parade.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgwOTIyMDYxMTcwNTU2/john-cena-net-worth.jpg",
+      "desc": "Hello my name is heri"
     },
     {
       "id": 3,
       "username": "bruno",
       "password": "password",
       "name": "Bruno Mars",
-      "avatar_url": "https://media.resources.festicket.com/www/artists/BrunoMars_New.jpg"
+      "avatar_url": "https://media.resources.festicket.com/www/artists/BrunoMars_New.jpg",
+      "desc": ""
+    },
+    {
+      "username": "jordansmrd",
+      "password": "password",
+      "email": "a@mail.com",
+      "name": "Jordan Sumardi",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "username": "raul.fernandex",
+      "password": "password",
+      "email": "a@mail.com",
+      "name": "raul",
+      "avatar_url": "",
+      "desc": ""
+    },
+    {
+      "id": 6,
+      "username": "asdsad",
+      "password": "sadsada",
+      "email": "asdsa",
+      "name": "sadsad",
+      "avatar_url": "",
+      "desc": ""
+    },
+    {
+      "id": 7,
+      "username": "anakbaru",
+      "password": "password",
+      "email": "ab@mail.com",
+      "name": "anak baru",
+      "avatar_url": "",
+      "desc": ""
+    },
+    {
+      "id": 8,
+      "username": "anakbaru2",
+      "password": "password",
+      "email": "anakbaru2@mail.com",
+      "name": "anak baru banget",
+      "avatar_url": "",
+      "desc": ""
+    },
+    {
+      "id": 9,
+      "email": "jordan@mail.com",
+      "username": "Joe123456789",
+      "password": "Password",
+      "name": "joe",
+      "avatar_url": "",
+      "desc": ""
     }
   ]
 }
