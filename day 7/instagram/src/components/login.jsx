@@ -6,6 +6,7 @@ import { axiosInstance } from "../config/config";
 import { useState } from "react";
 import user_types from "../redux/auth/types";
 import { useDispatch } from "react-redux";
+import { userLogin } from "../redux/middleware/userauth";
 
 export default function Login() {
     const dispatch = useDispatch();
@@ -25,22 +26,13 @@ export default function Login() {
     // }
 
     async function Login() {
-        const res =  await axiosInstance.get("/users/", {params : user})
-        const userData = res.data[0]
 
-        if(userData) 
-       { dispatch({
-            type: user_types.USER_LOGIN,
-            payload: userData
-        })
-        
-        localStorage.setItem("user_data", JSON.stringify(userData))
-       return navigate("/",{ state : { user :res.data[0] }, replace: true }) 
-        
-        }
+    const isAuth = await dispatch(userLogin(user));
+    console.log(isAuth);
+    if(isAuth.status) {
+        return navigate("/",{ state : { user : isAuth.data }, replace: true }) 
+    }
       return  setStatus(true)
-        
-
     }
 
     function inputHandler(event) {

@@ -9,9 +9,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./redux/store";
 import { Provider } from "react-redux";
 import AuthProvider from "./hoc/authProvider";
-const auth = React.lazy(() => import("./hoc/authProvider"));
+import thunk from "redux-thunk";
 
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({ reducer: rootReducer, middleware: [thunk] });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
